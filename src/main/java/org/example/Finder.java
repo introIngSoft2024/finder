@@ -2,9 +2,25 @@ package org.example;
 
 /** Class with a method to find the lowest value in an array */
 public class Finder {
-  public int findLowestValue(int[] array) {
+  private final String name ;
+
+  public Finder(String name) {
+    this.name = name ;
+  }
+
+  public Finder() {
+    this.name = "Default" ;
+  }
+
+  /**
+   *
+   * @param array
+   * @return The lowest value stored in the array
+   * @throws RuntimeException If the array is empty, an exception is raised
+   */
+  public int findLowestValue(int[] array) throws EmptyArrayException {
     if (array.length == 0) {
-      throw new RuntimeException("The array is empty");
+      throw new EmptyArrayException();
     }
 
     int lowest = Integer.MAX_VALUE;
@@ -24,6 +40,6 @@ public class Finder {
      * @return true if value1 < value2
      */
   private boolean lowerThan(int value1, int value2) {
-    return value1 < value2;
+    return value1 > value2;
   }
 }
