@@ -14,9 +14,9 @@ public class Finder {
 
   /**
    *
-   * @param array
+   * @param array of integer values
    * @return The lowest value stored in the array
-   * @throws RuntimeException If the array is empty, an exception is raised
+   * @throws RuntimeException if the array is empty
    */
   public int findLowestValue(int[] array) throws EmptyArrayException {
     if (array.length == 0) {

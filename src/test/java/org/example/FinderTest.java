@@ -13,7 +13,7 @@ Test cases for the findLowestValue() method
 - [] -> raise an EmptyArrayException
 - [1] -> returns 1
 - [1,2] -> returns 1
-- [2,1] -> returns 2
+- [2,1] -> returns 1
 - [3,2,5] -> returns 2
 */
 
@@ -40,13 +40,52 @@ class FinderTest {
   @Test
   void givenAnArrayWithAValueWhenCallingTheMethodThenTheValueIsReturned() {
     // Arrange
-    int value = 1 ;
-    int[] array = new int[]{value} ;
+    int[] array = new int[]{1} ;
 
     // Act
     int result = finder.findLowestValue(array) ;
 
     // Assert
-    assertEquals(value, result);
+    int expectedValue = 1 ;
+    assertEquals(expectedValue, result);
+  }
+
+  @Test
+  void givenAnArrayWithTwoValuesWhenCallingTheMethodThenTheFirstOneIsReturned() {
+    // Arrange
+    int[] array = new int[]{1,2} ;
+
+    // Act
+    int result = finder.findLowestValue(array) ;
+
+    // Assert
+    int expectedValue = 1 ;
+    assertEquals(expectedValue, result);
+  }
+
+  @Test
+  void givenAnArrayWithTwoValuesWhenCallingTheMethodThenTheSecondOneIsReturned() {
+    // Arrange
+    int[] array = new int[]{2,1} ;
+
+    // Act
+    int result = finder.findLowestValue(array) ;
+
+    // Assert
+    int expectedValue = 1 ;
+    assertEquals(expectedValue, result);
+  }
+
+  @Test
+  void givenAnArrayWithThreeValuesWhenCallingTheMethodThenTheSecondOneIsReturned() {
+    // Arrange
+    int[] array = new int[]{3,2,5} ;
+
+    // Act
+    int result = finder.findLowestValue(array) ;
+
+    // Assert
+    int expectedValue = 2 ;
+    assertEquals(expectedValue, result);
   }
 }
